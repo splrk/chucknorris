@@ -23,24 +23,7 @@ export enum Category {
 export default gql`
   scalar GraphQLDateTime
 
-  enum Category {
-    animal
-    career
-    celebrity
-    dev
-    explicit
-    fashion
-    food
-    history
-    money
-    movie
-    music
-    political
-    religion
-    science
-    sport
-    travel
-  }
+  scalar Category
 
   type Joke {
     categories: [Category!]!
