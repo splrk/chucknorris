@@ -1,0 +1,11 @@
+{
+  "name": "chucknorris-sovtech",
+  "version": "0.0.0",
+  "description": "Display a random chuck norris Joke",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Ryan Seal <rseal@twr.org>",
+  "license": "MIT"
+}
