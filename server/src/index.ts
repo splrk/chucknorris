@@ -1,7 +1,7 @@
 import { ApolloServer } from 'apollo-server';
 import axios from 'axios';
 import { GraphQLDateTime } from 'graphql-iso-date';
-import typeDefs, { Category } from '../schema';
+import typeDefs, { Category } from './schema';
 
 type RandomJokeParams = {
   category?: Category
