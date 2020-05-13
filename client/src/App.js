@@ -1,4 +1,5 @@
 import React from 'react';
+import Home from './components/Home';
 
 function App() {
   return (
@@ -6,6 +7,7 @@ function App() {
       <header className="App-header">
           Chuck Norris Jokes
       </header>
+      <Home />
     </div>
   );
 }
