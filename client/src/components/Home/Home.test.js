@@ -24,3 +24,14 @@ test('renders current joke', () => {
   expect(mainElement).toBeInTheDocument();
 });
 
+test('render categories', () => {
+  const categories = ['animal', 'career', 'dev'];
+  const { getByText } = render(
+    <Context.Provider value={{ categories }}>
+      <Home />
+    </Context.Provider>
+  );
+
+  categories.forEach(category =>
+    expect(getByText(category)).toBeInTheDocument());
+});
