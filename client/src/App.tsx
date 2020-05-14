@@ -8,7 +8,7 @@ const client = new ApolloClient({
   uri: `${window.location.protocol}://${window.location.hostname}:${window.location.port}`,
 });
 
-function App(): React.ReactNode {
+function App(): React.ReactElement {
   return (
     <ApolloProvider client={client}>
       <ContextProvider>
