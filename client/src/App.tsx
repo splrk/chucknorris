@@ -4,6 +4,7 @@ import ApolloClient from 'apollo-boost';
 import { ThemeProvider } from 'styled-components';
 import { ContextProvider } from './Context';
 import Home from './components/Home';
+import Header from './components/Header';
 import theme from './theme';
 
 const client = new ApolloClient({
@@ -16,7 +17,9 @@ function App(): React.ReactElement {
       <ThemeProvider theme={theme}>
         <ContextProvider>
           <div className="App">
-            <header className="App-header">Chuck Norris Jokes</header>
+            <Header className="App-header">
+              <h1>Chuck Norris Jokes</h1>
+            </Header>
             <Home />
           </div>
         </ContextProvider>
