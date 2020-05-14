@@ -11,7 +11,7 @@ const resolvers = {
   GraphQLDateTime,
 
   Query: {
-    random: async (category: Category) => {
+    random: async (_: any, { category }: RandomJokeParams) => {
       const params: RandomJokeParams = {};
       if (category) {
         params.category = category
