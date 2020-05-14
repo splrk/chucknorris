@@ -1,6 +1,7 @@
-import React, { useReducer, Dispatch } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import types from './types';
+import { useQuery } from '@apollo/react-hooks';
+import { GET_CATEGORIES, CategoriesData } from './queries';
 
 interface ContextState {
   categoriesLoading: boolean;
@@ -8,55 +9,29 @@ interface ContextState {
   currentJoke: string;
 }
 
-interface ContextValue extends ContextState {
-  dispatch: Dispatch<ContextState>
-};
-
 const defaultContextState: ContextState = {
   categoriesLoading: false,
   categories: [],
   currentJoke: '',
 };
 
-const defaultContextValue: ContextValue = {
-  ...defaultContextState,
-  dispatch: (state: ContextState) => state
-};
-
-const Context = React.createContext(defaultContextValue);
-
-const reducer = (state: ContextState, action: any): ContextState => {
-  switch (action.type) {
-    case (types.CATEGORIES_START_REFRESH):
-      return {
-        ...state,
-        categoriesLoading: true
-      };
-    case (types.CATEGORIES_LOAD_COMPLETE):
-      const { categories } = action;
-
-      return {
-        ...state,
-        categoriesLoading: false,
-        categories
-      };
-    default:
-      return state;
-  }
-}
+const Context = React.createContext(defaultContextState);
 
 const ContextProvider: React.SFC = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, defaultContextState);
+  const { loading, data } = useQuery<CategoriesData>(GET_CATEGORIES);
+  const categories = data ? data.categories : [];
 
   return (
-    <Context.Provider value={{ ...state, dispatch }}>
-      {children}
-    </Context.Provider>
+    <Context.Provider value={{ categoriesLoading: loading, categories, currentJoke: '' }}>{children}</Context.Provider>
   );
 };
 
 ContextProvider.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
+};
+
+ContextProvider.defaultProps = {
+  children: null,
 };
 
 export default Context;
