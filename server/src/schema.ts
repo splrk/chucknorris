@@ -16,9 +16,18 @@ export enum Category {
   religion = 'religion',
   science = 'science',
   sport = 'sport',
-  travel = 'travel'
+  travel = 'travel',
 }
 
+export interface Joke {
+  category: string;
+  created_at: Date;
+  icon_url: string;
+  id: string;
+  updated_at: Date;
+  url: string;
+  value: string;
+}
 
 export default gql`
   scalar GraphQLDateTime
