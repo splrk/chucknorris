@@ -9,3 +9,11 @@ export const GET_CATEGORIES = gql`
     categories
   }
 `;
+
+export const GET_RANDOM_JOKE = gql`
+  query GetRandomJoke($category: String) {
+    random(category: $category) {
+      value
+    }
+  }
+`;
