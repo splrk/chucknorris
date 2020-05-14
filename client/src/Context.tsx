@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/react-hooks';
 import { GET_CATEGORIES, CategoriesData } from './queries';
 
-interface ContextState {
+export interface ContextState {
   categoriesLoading: boolean;
   categories: string[];
   currentJoke: string;
 }
 
-const defaultContextState: ContextState = {
+export const defaultContextState: ContextState = {
   categoriesLoading: false,
   categories: [],
   currentJoke: '',
