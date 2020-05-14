@@ -4,8 +4,10 @@
   "description": "Display a random chuck norris Joke",
   "scripts": {
     "test": "jest",
-    "start": "cd server && npm start",
-    "postinstall": "cd server && npm install"
+    "server": "cd server && npm start",
+    "start": "concurrently 'npm run server' 'cd client && npm start'",
+    "postinstall": "cd server && npm install",
+    "test:client": "cd client && npm run test"
   },
   "author": "Ryan Seal <rseal@twr.org>",
   "license": "MIT",
@@ -16,8 +18,9 @@
     "@types/node": "^13.13.5",
     "@types/react": "^16.9.35",
     "@types/react-dom": "^16.9.8",
-    "@typescript-eslint/eslint-plugin": "^2.32.0",
-    "@typescript-eslint/parser": "^2.32.0",
+    "@typescript-eslint/eslint-plugin": "^2.33.0",
+    "@typescript-eslint/parser": "^2.33.0",
+    "concurrently": "^5.2.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^6.11.0",
@@ -31,5 +34,8 @@
     "prettier": "^2.0.5",
     "ts-node": "^8.10.1",
     "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "prop-types": "^15.7.2"
   }
 }

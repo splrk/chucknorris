@@ -1,0 +1,8 @@
+
+enum types {
+  CATEGORIES_START_REFRESH,
+  CATEGORIES_LOAD_COMPLETE,
+  CATEGOREIS_LOAD_ERROR
+};
+
+export default types;
