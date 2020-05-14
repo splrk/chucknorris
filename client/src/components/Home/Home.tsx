@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Button from '../Button';
 
 export interface HomeProps {
   categories: string[];
@@ -11,9 +12,9 @@ const Home: React.SFC<HomeProps> = ({ categories, text, getRandomJoke }) => (
   <div>
     <nav>
       {categories.map((category) => (
-        <button key={category} onClick={(): void => getRandomJoke(category)} type="button">
+        <Button key={category} onClick={(): void => getRandomJoke(category)} type="button">
           {category}
-        </button>
+        </Button>
       ))}
     </nav>
     {text}
