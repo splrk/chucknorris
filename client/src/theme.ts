@@ -5,7 +5,8 @@ const theme = {
   mainText: '#fff',
   maxWidth: '960px',
   breaks: {
-    medium: '768px',
+    medium: 768,
+    small: 480,
   },
 };
 

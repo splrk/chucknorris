@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Navigation, { NavigationItem } from '../Navigation';
 import Container from '../Container';
-import Button from '../Button';
 import Rotating from '../Rotating';
 import { ReactComponent as Beard } from '../beard.svg';
 
@@ -19,13 +19,13 @@ const BrownBeard = styled(Beard)`
 
 const Home: React.SFC<HomeProps> = ({ jokeLoading, categories, text, getRandomJoke }) => (
   <Container>
-    <nav>
+    <Navigation>
       {categories.map((category) => (
-        <Button key={category} onClick={(): void => getRandomJoke(category)} type="button">
+        <NavigationItem key={category} onClick={(): void => getRandomJoke(category)}>
           {category}
-        </Button>
+        </NavigationItem>
       ))}
-    </nav>
+    </Navigation>
     {jokeLoading ? (
       <Rotating>
         <BrownBeard width="200" height="200" />

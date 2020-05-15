@@ -10,7 +10,7 @@ export default styled.div`
   padding: 1rem;
   margin: 0 auto;
 
-  @media (max-width: ${(props): string => props.theme.breaks.medium}) {
+  @media (max-width: ${(props): number => props.theme.breaks.medium}px) {
     max-width: 100%;
   }
 `;
