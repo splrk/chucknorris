@@ -1,0 +1,59 @@
+{
+  "extends": [
+    "airbnb",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["react", "@typescript-eslint", "prettier"],
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "rules": {
+    "prettier/prettier": ["error"],
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".jsx"] }],
+    "@typescript-eslint/no-non-null-assertion": 1,
+    "import/extensions": [1, { "tsx": "never", "ts": "never" }],
+    "import/no-extraneous-dependencies": [1, {
+        "devDependencies": [
+            "test/**",
+            "tests/**",
+            "spec/**",
+            "**/__tests__/**",
+            "**/__mocks__/**",
+            "test.{js,jsx,ts,tsx}",
+            "test-*.{js,jsx,ts,tsx}",
+            "**/*{.,_}{test,spec}.{js,jsx,ts,tsx}",
+            "**/jest.config.{js,ts}",
+            "**/jest.setup.{js,ts}",
+            "**/vue.config.{js,ts}",
+            "**/webpack.config.js",
+            "**/webpack.config.*.js",
+            "**/rollup.config.js",
+            "**/rollup.config.*.js",
+            "**/gulpfile.js",
+            "**/gulpfile.*.js",
+            "**/Gruntfile{,.js}",
+            "**/protractor.conf.js",
+            "**/protractor.conf.*.js",
+            "**/karma.conf.js"
+        ],
+        "optionalDependencies": false
+    }]
+  },
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
+  "parser": "@typescript-eslint/parser"
+}
