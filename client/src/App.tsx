@@ -8,7 +8,7 @@ import Header from './components/Header';
 import theme from './theme';
 
 const client = new ApolloClient({
-  uri: `${window.location.protocol}://${window.location.hostname}:${window.location.port}`,
+  uri: `${window.location.protocol}//${window.location.hostname}:${window.location.port}`,
 });
 
 function App(): React.ReactElement {
