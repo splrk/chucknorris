@@ -1,10 +1,10 @@
 import { ApolloServer } from 'apollo-server';
 import axios from 'axios';
 import { GraphQLDateTime } from 'graphql-iso-date';
-import typeDefs, { Category, Joke } from './schema';
+import typeDefs, { Joke } from './schema';
 
 type RandomJokeParams = {
-  category?: Category;
+  category?: string;
 };
 
 const resolvers = {

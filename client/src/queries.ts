@@ -11,7 +11,7 @@ export const GET_CATEGORIES = gql`
 `;
 
 export const GET_RANDOM_JOKE = gql`
-  query GetRandomJoke($category: Category) {
+  query GetRandomJoke($category: String) {
     random(category: $category) {
       value
     }
