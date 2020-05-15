@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Navigation, { NavigationItem } from '../Navigation';
 import Container from '../Container';
 import Rotating from '../Rotating';
+import Card from '../Card';
 import { ReactComponent as Beard } from '../beard.svg';
 
 export interface HomeProps {
@@ -31,7 +32,7 @@ const Home: React.SFC<HomeProps> = ({ jokeLoading, categories, text, getRandomJo
         <BrownBeard width="200" height="200" />
       </Rotating>
     ) : (
-      <div>{text}</div>
+      <Card>{text}</Card>
     )}
   </Container>
 );
