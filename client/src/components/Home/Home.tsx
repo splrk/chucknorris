@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Container from '../Container';
 import Button from '../Button';
 import Rotating from '../Rotating';
 import { ReactComponent as Beard } from '../beard.svg';
@@ -17,7 +18,7 @@ const BrownBeard = styled(Beard)`
 `;
 
 const Home: React.SFC<HomeProps> = ({ jokeLoading, categories, text, getRandomJoke }) => (
-  <div>
+  <Container>
     <nav>
       {categories.map((category) => (
         <Button key={category} onClick={(): void => getRandomJoke(category)} type="button">
@@ -32,7 +33,7 @@ const Home: React.SFC<HomeProps> = ({ jokeLoading, categories, text, getRandomJo
     ) : (
       <div>{text}</div>
     )}
-  </div>
+  </Container>
 );
 
 Home.propTypes = {

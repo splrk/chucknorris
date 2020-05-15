@@ -1,13 +1,20 @@
 import React from 'react';
+import { ThemeProvider } from 'styled-components';
 import { render, RenderResult } from '@testing-library/react';
 import Context, { defaultContextState, ContextState } from '../../Context';
 import Home from './index';
 
+const theme = {
+  breaks: {},
+};
+
 const renderHome = (overrideState: Partial<ContextState> = {}): RenderResult =>
   render(
-    <Context.Provider value={{ ...defaultContextState, ...overrideState }}>
-      <Home />
-    </Context.Provider>
+    <ThemeProvider theme={theme}>
+      <Context.Provider value={{ ...defaultContextState, ...overrideState }}>
+        <Home />
+      </Context.Provider>
+    </ThemeProvider>
   );
 
 test('renders instructional Text', () => {
