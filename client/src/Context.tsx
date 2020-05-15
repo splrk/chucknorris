@@ -5,6 +5,7 @@ import { GET_CATEGORIES, GET_RANDOM_JOKE, CategoriesData } from './queries';
 
 export interface ContextState {
   categoriesLoading: boolean;
+  jokeLoading: boolean;
   categories: string[];
   currentJoke: string;
 }
@@ -15,6 +16,7 @@ export interface ContextValue extends ContextState {
 
 export const defaultContextState: ContextValue = {
   categoriesLoading: false,
+  jokeLoading: false,
   categories: [],
   currentJoke: '',
   getRandomJoke() {
@@ -25,10 +27,13 @@ export const defaultContextState: ContextValue = {
 const Context = React.createContext<ContextValue>(defaultContextState);
 
 const ContextProvider: React.SFC = ({ children }) => {
-  const { loading, data } = useQuery<CategoriesData>(GET_CATEGORIES);
-  const [getRandomJoke, { data: randomJoke }] = useLazyQuery<{ random: { value: string } }>(GET_RANDOM_JOKE, {
-    fetchPolicy: 'no-cache',
-  });
+  const { loading: categoriesLoading, data } = useQuery<CategoriesData>(GET_CATEGORIES);
+  const [getRandomJoke, { data: randomJoke, loading: jokeLoading }] = useLazyQuery<{ random: { value: string } }>(
+    GET_RANDOM_JOKE,
+    {
+      fetchPolicy: 'no-cache',
+    }
+  );
 
   const categories = data ? data.categories : [];
   const currentJoke = randomJoke ? randomJoke.random.value : '';
@@ -36,7 +41,8 @@ const ContextProvider: React.SFC = ({ children }) => {
   return (
     <Context.Provider
       value={{
-        categoriesLoading: loading,
+        categoriesLoading,
+        jokeLoading,
         categories,
         currentJoke,
         getRandomJoke: (category): void => getRandomJoke({ variables: { category } }),
